@@ -18,7 +18,14 @@
 *.pdb
 
 # Compiled Dynamic libraries
+*.lai
+*.la
+*.a
+*.asm
+*.lib
+*.o
 *.so
+*.so.*
 *.dylib
 *.dll
 
@@ -26,16 +33,22 @@
 *.mod
 *.smod
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
 # Executables
+*.vcxproj
 *.exe
 *.out
 *.app
 
 # debug information files
 *.dwo
+
+# Don't commit binaries
+
+
+# Exclude editor config
+.vscode/
+.vs/
+
+# Exclude temporary folders
+*.egg-info/
+x64/
