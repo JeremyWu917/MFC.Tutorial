@@ -34,7 +34,6 @@
 *.smod
 
 # Executables
-*.vcxproj
 *.exe
 *.out
 *.app
