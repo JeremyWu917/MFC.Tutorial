@@ -3,7 +3,11 @@
 //
 
 #pragma once
-
+// 运算符枚举类型，定义了加、减、乘、除和取模五种运算
+enum OP
+{
+	ADD, SUB, MUL, DIV, MOD
+};
 
 // CMFCCalculatorDlg dialog
 class CMFCCalculatorDlg : public CDialogEx
@@ -47,6 +51,20 @@ private:
 	// 临时存放的结果，用于连续计算
 	double tempResult = 0;
 
+	// 计算次数，初始为0
+	int count = 0;
+
+	// 当前的运算符，初始为加法
+	//OP op;
+	// 是否运算结束的标志，在摁下等于按钮后变为true，初始为false
+	bool flag = false;
 
 
+public:
+
+	// 用于设置字体的成员变量
+	CFont m_Font;
+	// 用于与界面上的编辑框进行数据交换的变量
+	CEdit m_ControlEdit;
+	afx_msg void OnBnClickedButton1one();
 };

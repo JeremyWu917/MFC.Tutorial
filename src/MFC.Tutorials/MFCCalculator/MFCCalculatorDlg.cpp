@@ -20,15 +20,15 @@ class CAboutDlg : public CDialogEx
 public:
 	CAboutDlg();
 
-// Dialog Data
+	// Dialog Data
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
 #endif
 
-	protected:
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
-// Implementation
+	// Implementation
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
@@ -65,12 +65,17 @@ CMFCCalculatorDlg::CMFCCalculatorDlg(CWnd* pParent /*=nullptr*/)
 void CMFCCalculatorDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+
+	DDX_Text(pDX, IDC_EDITRESULT, m_strResult);
+	DDX_Text(pDX, IDC_EDITHIS, m_strHistory);
+	DDX_Control(pDX, IDC_EDITRESULT, m_ControlEdit);
 }
 
 BEGIN_MESSAGE_MAP(CMFCCalculatorDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1ONE, &CMFCCalculatorDlg::OnBnClickedButton1one)
 END_MESSAGE_MAP()
 
 
@@ -106,6 +111,10 @@ BOOL CMFCCalculatorDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 
 	// TODO: Add extra initialization here
+	// 创建一个字体对象，设置字体为微软雅黑，大小为20磅
+	m_Font.CreatePointFont(300, _T("微软雅黑"), NULL);
+	// 将字体应用到结果编辑框
+	m_ControlEdit.SetFont(&m_Font, FALSE);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -164,4 +173,11 @@ void CAboutDlg::OnBnClickedOk()
 {
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
+}
+
+// 计算器按钮1的点击事件处理函数
+void CMFCCalculatorDlg::OnBnClickedButton1one()
+{
+	// TODO: Add your control notification handler code here
+
 }
